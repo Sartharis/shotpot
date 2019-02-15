@@ -6,11 +6,17 @@ public class Hand : MonoBehaviour
 {
     [SerializeField] Color burnColor;
     [SerializeField] float burnTime;
+    [SerializeField] float centerX;
+    [SerializeField] float maxX;
+    [SerializeField] float minMass;
+    [SerializeField] float maxMass;
 
     private float currentBurnTime;
-    private Color baseColor;
+    private SpriteRenderer[] sprites;
+    private Color[] baseColor;
     private Movement mov;
     private SpriteRenderer spr;
+    private Rigidbody2D rbody;
     public int player;
 
     public bool isBurned()
@@ -26,9 +32,16 @@ public class Hand : MonoBehaviour
 
     private void Start()
     {
+        rbody = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();    
         mov = GetComponent<Movement>();
-        baseColor = spr.color;
+        sprites = GetComponentsInChildren<SpriteRenderer>();
+        baseColor = new Color[sprites.Length];
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            baseColor[i] = sprites[i].color;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,19 +49,27 @@ public class Hand : MonoBehaviour
         if (collision.transform.GetComponent<HotpotLiquid>())
         {
             currentBurnTime = burnTime;
+            GetComponent<AudioSource>().Play();
         }
     }
 
     private void Update()
     {
+        rbody.mass = (Mathf.Clamp01((transform.position.x - centerX) /maxX) * maxMass) + minMass;
         if (currentBurnTime > 0)
         {
-            spr.color = Color.Lerp(baseColor, burnColor, currentBurnTime / burnTime);
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                sprites[i].color = Color.Lerp(baseColor[i], burnColor, currentBurnTime / burnTime);
+            }
             currentBurnTime -= Time.deltaTime;
         }
         else
         {
-            spr.color = baseColor;
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                sprites[i].color = baseColor[i];
+            }
         }
     }
 }

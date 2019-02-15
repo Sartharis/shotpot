@@ -5,6 +5,7 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     public int score = 1;
+    public string name = "Garbage";
 
     public bool canBeScored()
     {

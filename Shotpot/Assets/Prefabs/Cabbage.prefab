@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 1
+  name: Cabbage
 --- !u!61 &847171123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -260,6 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 1
+  name: Garbage
 --- !u!61 &2239166296365583317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -433,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 1
+  name: Garbage
 --- !u!61 &5237160217710307793
 BoxCollider2D:
   m_ObjectHideFlags: 0

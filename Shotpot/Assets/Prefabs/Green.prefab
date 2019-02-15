@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4565391796964772760}
   - component: {fileID: 847171123}
   m_Layer: 10
-  m_Name: Meat2
+  m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 847171122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.03, y: 4.4693003, z: 0}
-  m_LocalScale: {x: 0.92827344, y: 0.17019556, z: 1}
+  m_LocalScale: {x: 0.22046494, y: 0.17019556, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bc20177c15991d944b4f22714be693ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28763ba782127914d9594a40f5bef3a8, type: 3}
   m_Color: {r: 0.36933014, g: 0.5660378, b: 0.258989, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,7 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761fb1630b5c56f47823e541b1f99110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 2
+  score: 1
+  name: Spinach
 --- !u!61 &847171123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,16 +130,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02035451, y: -0.00000047683716}
+  m_Offset: {x: 0.13489556, y: -0.00000047683716}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 9.48, y: 3.38}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1122074, y: 2.154161}
+  m_Size: {x: 8.144693, y: 2.154161}
   m_EdgeRadius: 0

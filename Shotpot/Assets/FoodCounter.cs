@@ -20,6 +20,32 @@ public class FoodCounter : MonoBehaviour
         capsule = GetComponent<CapsuleCollider2D>();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Food food = collision.transform.GetComponent<Food>();
+        if(food && food.score > 0)
+        {
+            GameObject instance = Instantiate(Resources.Load("FloatingText", typeof(GameObject))) as GameObject;
+            instance.transform.position = collision.transform.position;
+            TextMesh text = instance.GetComponent<TextMesh>();
+            text.anchor = transform.position.x > 0 ? TextAnchor.UpperRight : TextAnchor.UpperLeft;
+            text.text = food.name + " +" + food.score.ToString();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Food food = collision.transform.GetComponent<Food>();
+        if (food && food.score > 0)
+        {
+            GameObject instance = Instantiate(Resources.Load("BadFloatingText", typeof(GameObject))) as GameObject;
+            instance.transform.position = collision.transform.position;
+            TextMesh text = instance.GetComponent<TextMesh>();
+            text.anchor = transform.position.x > 0 ? TextAnchor.UpperRight : TextAnchor.UpperLeft;
+            text.text = food.name + " -" + food.score.ToString();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

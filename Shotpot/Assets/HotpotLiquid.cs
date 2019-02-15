@@ -9,7 +9,8 @@ public class HotpotLiquid : MonoBehaviour
     [SerializeField] float velocitySlowdown = 0.1f;
     [SerializeField] float drag = 0.2f;
     [SerializeField] float angularDrag = 0.2f;
-
+    [SerializeField] AudioClip[] splashSounds;
+    public int piecesInLiquid; 
     private Collider2D col;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +19,7 @@ public class HotpotLiquid : MonoBehaviour
         collision.attachedRigidbody.drag *= drag;
         collision.attachedRigidbody.angularDrag *= angularDrag;
         col = GetComponent<Collider2D>();
+        GetComponent<AudioSource>().PlayOneShot(splashSounds[Random.Range(0, splashSounds.Length)]);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
